@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace DIVA_INTERN
 {
@@ -22,13 +24,13 @@ namespace DIVA_INTERN
                 return;
             }
 
-            if(!int.TryParse(inputArr[0],out int a) || !int.TryParse(inputArr[1],out int b))
+            if(inputArr.Any(item => !int.TryParse(item, out int i)))
             {
                 Console.WriteLine("整数値を入力してください");
                 return;
             }
 
-            Console.WriteLine(Math.Pow(32, a - b));
+            Console.WriteLine(Math.Pow(32, int.Parse(inputArr[0]) - int.Parse(inputArr[1])));
         }
     }
 }
