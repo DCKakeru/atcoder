@@ -19,12 +19,11 @@ class Program
         }
 
         int sLen = s.Length;
-        string s1,sRep1,sRep2,s4;
         var sRep = s.Select((i, index) => {
-            s1 = s.Substring(0, index);
-            sRep1 = s.Substring(index, 1);
-            sRep2 = (index == sLen - 1) ? "" : s.Substring(index + 1, 1);
-            s4 = (index >= sLen - 2) ? "" : s.Substring(index + 2);
+            var s1 = s.Substring(0, index);
+            var sRep1 = s.Substring(index, 1);
+            var sRep2 = (index == sLen - 1) ? "" : s.Substring(index + 1, 1);
+            var s4 = (index >= sLen - 2) ? "" : s.Substring(index + 2);
             return s1 + sRep2 + sRep1 + s4;
         }).Where(x => x.Equals(v)).ToList();
 
