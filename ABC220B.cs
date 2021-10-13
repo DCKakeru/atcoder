@@ -22,19 +22,24 @@ class Program
             return;
         }
 
-        if(!int.TryParse(inputK, out int i) || inputArr.Any(item => !int.TryParse(item, out int i)))
+        if(!int.TryParse(inputK, out int i) || inputArr.Any(item => !long.TryParse(item, out long i)))//10^5をn進数で表示 => 2^16.6なので17桁必要 = long型
         {
             Console.WriteLine("整数値を入力してください");
             return;
         }
 
-        Console.WriteLine(inputArr[0].Select((i,index) => {
-            var num = int.Parse(inputArr[0].Substring(index,1));//int.Parse(i)ではエラー
-            return num * Math.Pow(int.Parse(inputK) , inputArr[0].Length - index - 1);
-        }).Sum()
-        * inputArr[1].Select((i,index) => {
-            var num = int.Parse(inputArr[1].Substring(index,1));//int.Parse(i)ではエラー
-            return num * Math.Pow(int.Parse(inputK) , inputArr[1].Length - index - 1);
-        }).Sum());
+        var k = int.Parse(inputK);
+
+        var a10 = inputArr[0].Select((i,index) => {
+            var num = int.Parse(inputArr[0].Substring(index,1));//string != charの集合体 => 部分文字列の生成が必要
+            return num * Math.Pow(k , inputArr[0].Length - index - 1);
+        }).Sum();
+
+        var b10 = inputArr[1].Select((i,index) => {
+            var num = int.Parse(inputArr[1].Substring(index,1));
+            return num * Math.Pow(k , inputArr[1].Length - index - 1);
+        }).Sum();
+
+        Console.WriteLine(a10 * b10);
     }
-}//なぜか一つテストケース通らない
+}
