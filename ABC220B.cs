@@ -31,7 +31,7 @@ class Program
         var k = int.Parse(inputK);
 
         var a10 = inputArr[0].Select((i,index) => {
-            var num = int.Parse(inputArr[0].Substring(index,1));//string != charの集合体 => 部分文字列の生成が必要
+            var num = Char.GetNumericValue(i);//string != charの集合体 => Char用のメソッドが必要
             return num * Math.Pow(k , inputArr[0].Length - index - 1);
         }).Sum();
 

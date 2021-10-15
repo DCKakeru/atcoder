@@ -43,6 +43,6 @@ class Program
             return;
         }
 
-        Console.WriteLine(inputArrA.Where(item => int.Parse(item) < int.Parse(inputArrNP[1])).Count());
+        Console.WriteLine(inputArrA.Count(item => int.Parse(item) < int.Parse(inputArrNP[1])));
     }
 }
