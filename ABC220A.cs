@@ -27,12 +27,11 @@ class Program
             Console.WriteLine("整数値を入力してください");
             return;
         }
+            int minNum = int.Parse(inputArr[0]);
+            int maxNum = int.Parse(inputArr[1]);
+            int baseNum = int.Parse(inputArr[2]);
 
-        var ans = int.Parse(inputArr[2]);
-
-        while (ans < int.Parse(inputArr[0])){
-            ans += int.Parse(inputArr[2]);
-        }
-        Console.WriteLine((ans <= int.Parse(inputArr[1])) ? ans : -1);
+            var res = Enumerable.Range(minNum, maxNum + 1).First(item => item % baseNum == 0);
+            Console.WriteLine(res > maxNum ? -1 : res);
     }
 }
