@@ -41,14 +41,15 @@ class Program
             return;
         }
 
-        var highest = 0;
+        var inputHInt = inputHArr.Select(i => int.Parse(i));
 
-        Console.WriteLine("{0}", 
-            inputHArr.Select(i => {
-                var high = int.Parse(i);
-                highest = Math.Max(highest, high);
-                return highest > high ? 0: 1;
-            }).Sum()
-        );
+        var ans = inputHInt.Aggregate("0",(highestList, i) => {
+                var highest = int.Parse(highestList.Split(" ").Last());
+                if (highest <= i){
+                    return highestList + " " + i.ToString();
+                }
+                return highestList;
+            });
+        Console.WriteLine(ans.Split(" ").Length - 1);
     }
 }
