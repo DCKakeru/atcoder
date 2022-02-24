@@ -43,13 +43,12 @@ class Program
 
         var inputHInt = inputHArr.Select(i => int.Parse(i));
 
-        var ans = inputHInt.Aggregate("0",(highestList, i) => {
-                var highest = int.Parse(highestList.Split(" ").Last());
-                if (highest <= i){
-                    return highestList + " " + i.ToString();
+        var ans = inputHInt.Aggregate((int.MinValue, 0),(highestTuple, i) => {
+                if (i < highestTuple.Item1){
+                    return highestTuple;
                 }
-                return highestList;
+                return (i, highestTuple.Item2 + 1);
             });
-        Console.WriteLine(ans.Split(" ").Length - 1);
+        Console.WriteLine(ans.Item2);
     }
 }
