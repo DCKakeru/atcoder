@@ -20,7 +20,8 @@ class Program
             return;
         }
 
-        List<int> sList = new List<int> {int.Parse(input.Substring(0,2)), int.Parse(input.Substring(2,2))};
+        var sList = new List<int> {int.Parse(input.Substring(0,2)), int.Parse(input.Substring(2,2))};
+        //右辺が明確な場合、わざわざ型指定するのは冗長
 
         var isCanMonth = sList.Select(i => (i <= 12 && i >= 1) ? 1 : 0).ToArray();
 
