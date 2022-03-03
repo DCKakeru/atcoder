@@ -32,10 +32,10 @@ class Program
         var d = int.Parse(inputRDX[1]);
         var x = int.Parse(inputRDX[2]);
 
-        var ans = Enumerable.Range(0, 10).Aggregate(x, (culc, i) =>
+        var ans = Enumerable.Range(1, 10).Select(n =>
         {
-            Console.WriteLine(culc * r - d);
-            return culc * r - d;
-        });
+            return Enumerable.Range(0, n).Aggregate(x, (culc, i) => culc * r - d);
+        }).ToList();
+        ans.ForEach(x => Console.WriteLine(x));
     }
 }
