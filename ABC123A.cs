@@ -19,7 +19,7 @@ class Program
             Console.WriteLine("入力が不足しています");
             return;
         }
-        if (antennas.Any(item => item == -1))
+        if (antennas.Any(item => item == -2))
         {
             Console.WriteLine("0以上123以下の整数値を入力してください");
             return;
