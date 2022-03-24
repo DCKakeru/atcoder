@@ -22,7 +22,7 @@ class Program
         }).Select(i => i.Length).Max();
         Console.WriteLine(maxACGTLength);
     }
-    static string IsNextACGT(string s, string ans)
+    public string IsNextACGT(string s, string ans)
     {
         ans = ans + s.Substring(0, 1);
         if (s.Length == 1) return ans;
