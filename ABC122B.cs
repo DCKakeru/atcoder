@@ -14,11 +14,13 @@ class Program
             return;
         }
 
+        var testClass = new Program();
+
         var maxACGTLength = s.Select((i, idx) =>
         {
             if (!(i == 'A' || i == 'C' || i == 'G' || i == 'T')) return "";
             var ans = "";
-            return IsNextACGT(s.Substring(idx, s.Length - idx), ans);
+            return testClass.IsNextACGT(s.Substring(idx, s.Length - idx), ans);
         }).Select(i => i.Length).Max();
         Console.WriteLine(maxACGTLength);
     }
